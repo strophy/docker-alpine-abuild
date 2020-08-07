@@ -6,14 +6,17 @@ This is a Docker image for building Alpine Linux packages.
 
 We tag each release with a simple `v#` version scheme. Here are the tags to choose from:
 
-* `andyshinn/alpine-abuild:v1`: based on Alpine 3.3
-* `andyshinn/alpine-abuild:v2`: based on Alpine 3.4
-* `andyshinn/alpine-abuild:v3`: based on Alpine 3.5
-* `andyshinn/alpine-abuild:v4`: based on Alpine 3.6
-* `andyshinn/alpine-abuild:v5`: based on Alpine 3.6
-* `andyshinn/alpine-abuild:v6`: based on Alpine 3.7
-* `andyshinn/alpine-abuild:v7`: based on Alpine 3.8
-* `andyshinn/alpine-abuild:edge`: based on Alpine edge (includes testing repository as well)
+* `sgerrand/alpine-abuild:3.3`: based on Alpine 3.3
+* `sgerrand/alpine-abuild:3.4`: based on Alpine 3.4
+* `sgerrand/alpine-abuild:3.5`: based on Alpine 3.5
+* `sgerrand/alpine-abuild:3.6`: based on Alpine 3.6
+* `sgerrand/alpine-abuild:3.7`: based on Alpine 3.7
+* `sgerrand/alpine-abuild:3.8`: based on Alpine 3.8
+* `sgerrand/alpine-abuild:3.9`: based on Alpine 3.9
+* `sgerrand/alpine-abuild:3.10`: based on Alpine 3.10
+* `sgerrand/alpine-abuild:3.11`: based on Alpine 3.11
+* `sgerrand/alpine-abuild:3.12`: based on Alpine 3.12
+* `sgerrand/alpine-abuild:edge`: based on Alpine edge (includes testing repository as well)
 
 The builder is typically run from your Alpine Linux package source directory (changing `~/.abuild/mykey.rsa` and `~/.abuild/mykey.rsa.pub` to your packager private and public key locations):
 
@@ -39,14 +42,14 @@ There are a number of environment variables you can change at package build time
 * `RSA_PRIVATE_KEY_NAME`: Defaults to `ssh.rsa`. This is the name we will set the private key file as when using `RSA_PRIVATE_KEY`. The file will be written out to `/home/builder/$RSA_PRIVATE_KEY_NAME`.
 * `PACKAGER_PRIVKEY`: Defaults to `/home/builder/.abuild/$RSA_PRIVATE_KEY_NAME`. This is generally used if you are bind mounting your private key instead of passing it in with `RSA_PRIVATE_KEY`.
 * `REPODEST`: Defaults to `/packages`. If you want to override the destination of the build packages. You must also be sure the `builder` user has access to write to the destination. The `abuilder` entry point will attempt to `mkdir -p` this location.
-* `PACKAGER`: Defaults to `Glider Labs <team@gliderlabs.com>`. This is the name of the package used in package metadata.
+* `PACKAGER`: This is the name of the package used in package metadata.
 
 ## Keys
 
-You can use this image to generate keys if you don't already have them. Generate them in a container using the following command (replacing `Glider Labs <team@gliderlabs.com>` with your own name and email):
+You can use this image to generate keys if you don't already have them. Generate them in a container using the following command (replacing `YOUR NAME <YOUR@EMAIL>` with your own name and email):
 
 ```
-docker run --name keys --entrypoint abuild-keygen -e PACKAGER="Glider Labs <team@gliderlabs.com>" andyshinn/alpine-abuild:v2 -n
+docker run --name keys --entrypoint abuild-keygen -e PACKAGER="YOUR NAME <YOUR@EMAIL>" sgerrand/alpine-abuild:3.12 -n
 ```
 
 You'll see some output like the following:
