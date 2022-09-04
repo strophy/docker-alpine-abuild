@@ -19,6 +19,7 @@ We tag each release with a simple `v#` version scheme. Here are the tags to choo
 * `sgerrand/alpine-abuild:3.13`: based on Alpine 3.13
 * `sgerrand/alpine-abuild:3.14`: based on Alpine 3.14
 * `sgerrand/alpine-abuild:3.15`: based on Alpine 3.15
+* `sgerrand/alpine-abuild:3.16`: based on Alpine 3.16
 * `sgerrand/alpine-abuild:edge`: based on Alpine edge (includes testing repository as well)
 
 The builder is typically run from your Alpine Linux package source directory (changing `~/.abuild/mykey.rsa` and `~/.abuild/mykey.rsa.pub` to your packager private and public key locations):
@@ -30,7 +31,7 @@ docker run \
 	-v "$PWD:/home/builder/package" \
 	-v "$HOME/.abuild/packages:/packages" \
 	-v "$HOME/.abuild/mykey.rsa.pub:/etc/apk/keys/mykey.rsa.pub" \
-	sgerrand/alpine-abuild:3.15
+	sgerrand/alpine-abuild:3.16
 ```
 
 This would build the package at your current working directory, and place the resulting packages in `~/.abuild/packages/builder/x86_64`. Subsequent builds of packages will update the `~/.abuild/packages/builder/x86_64/APKINDEX.tar.gz` file.
@@ -52,7 +53,7 @@ There are a number of environment variables you can change at package build time
 You can use this image to generate keys if you don't already have them. Generate them in a container using the following command (replacing `YOUR NAME <YOUR@EMAIL>` with your own name and email):
 
 ```
-docker run --name keys --entrypoint abuild-keygen -e PACKAGER="YOUR NAME <YOUR@EMAIL>" sgerrand/alpine-abuild:3.15 -n
+docker run --name keys --entrypoint abuild-keygen -e PACKAGER="YOUR NAME <YOUR@EMAIL>" sgerrand/alpine-abuild:3.16 -n
 ```
 
 You'll see some output like the following:
