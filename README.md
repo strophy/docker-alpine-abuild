@@ -2,9 +2,11 @@
 
 This is a Docker image for building Alpine Linux packages.
 
+[![Docker](https://github.com/sgerrand/docker-alpine-abuild/actions/workflows/docker-publish.yml/badge.svg?branch=main&event=push)](https://github.com/sgerrand/docker-alpine-abuild/actions/workflows/docker-publish.yml)
+
 ## Usage
 
-We tag each release with a simple `v#` version scheme. Here are the tags to choose from:
+We tag each release with the Alpine Linux version used. Here are the tags to choose from:
 
 * `sgerrand/alpine-abuild:3.3`: based on Alpine 3.3
 * `sgerrand/alpine-abuild:3.4`: based on Alpine 3.4
