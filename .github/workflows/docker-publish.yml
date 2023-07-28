@@ -3,7 +3,7 @@ name: Docker push
 on:
   push:
     branches: [ "main" ]
-    tags: [ '*.*.*' ]
+    tags: [ '*.*', '*.*.*' ]
 
 env:
   REGISTRY: docker.io
