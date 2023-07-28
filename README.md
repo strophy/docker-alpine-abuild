@@ -22,6 +22,8 @@ We tag each release with the Alpine Linux version used. Here are the tags to cho
 * `sgerrand/alpine-abuild:3.14`: based on Alpine 3.14
 * `sgerrand/alpine-abuild:3.15`: based on Alpine 3.15
 * `sgerrand/alpine-abuild:3.16`: based on Alpine 3.16
+* `sgerrand/alpine-abuild:3.17`: based on Alpine 3.17
+* `sgerrand/alpine-abuild:3.18`: based on Alpine 3.18
 * `sgerrand/alpine-abuild:edge`: based on Alpine edge (includes testing repository as well)
 
 The builder is typically run from your Alpine Linux package source directory (changing `~/.abuild/mykey.rsa` and `~/.abuild/mykey.rsa.pub` to your packager private and public key locations):
