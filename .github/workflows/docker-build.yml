@@ -1,0 +1,38 @@
+name: Docker build
+
+on:
+  push:
+    branches-ignore: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build-main:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Build the Docker image
+      uses: docker/build-push-action@v6
+      with:
+        pull: true
+        push: false
+
+  build-edge:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Build the Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: edge
+        pull: true
+        push: false
